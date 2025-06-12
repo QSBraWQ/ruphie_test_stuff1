@@ -4,6 +4,7 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
+from kivy.properties import BooleanProperty, ObjectProperty
 
 
 class LoginScreen(Screen):
@@ -37,13 +38,15 @@ class LoginScreen(Screen):
         self.add_widget(lowlayout)
 
     def switch_screen(self, *args):
-        if self.lowinput1.text.strip()!='':
-            try:
-                age=int(self.lowinput2.text)
-                if age >= 7:  
-                    self.manager.transition = SlideTransition(direction='left')
-                    self.manager.current = 'second'
-            except:
-                self.lowtext2.text = "Input valid age (more than 7)"
-        else:
-            self.lowtext1.text = "Input valid name"
+        self.manager.transition = SlideTransition(direction='left')
+        self.manager.current = 'second'
+        # if self.lowinput1.text.strip()!='':
+        #     try:
+        #         age=int(self.lowinput2.text)
+        #         if age >= 7:  
+        #             self.manager.transition = SlideTransition(direction='left')
+        #             self.manager.current = 'second'
+        #     except:
+        #         self.lowtext2.text = "Input valid age (more than 7)"
+        # else:
+        #     self.lowtext1.text = "Input valid name"

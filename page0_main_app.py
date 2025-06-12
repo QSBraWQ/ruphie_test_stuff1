@@ -7,14 +7,17 @@ from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
+from kivy.properties import BooleanProperty, ObjectProperty
 from page1 import LoginScreen
 from page2 import Test1Screen
 from page3 import Test2Screen
 from page4 import Test3Screen
 from page5 import SitsScreen
+from ruph import Stats
 
 class MyApp(App):
     def build(self):
+        self.stats=ObjectProperty
         sm = ScreenManager()
         sm.add_widget(LoginScreen(name='first'))
         sm.add_widget(Test1Screen(name='second'))
